@@ -1,6 +1,6 @@
 from groq import Groq
 
-client = Groq(api_key="gsk_xxxx")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def explain_policy(question, policy_data):
     prompt = f"""
@@ -24,3 +24,4 @@ User Question:
     )
 
     return response.choices[0].message.content
+
